@@ -5,73 +5,112 @@ body {
   box-sizing: border-box;
 }
 div{
-  border: 1px solid red;
+ beorder: 1px solid red;
 }
+
+.header {
+  color: black;
+  margin-top: 10rem;
+  
+
+  font-size: 2rem;
+  font-weight: bolder;
+
+}
+
 
 /* content */
 .dashboard{
   display: flex;
   flex-direction: column;
-  max-width: 1600px;
+  max-width: 1000px;
   width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10rem;
+  margin: auto;
   
-  background: rgba(0,255,0,0.1); /* translucent green */
 
- 
 }
 
 .calorie-card{
-  background: #525252;
   padding: 1.5rem;
+  height: 200px;  
+  background: white;
+  color:black;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  border: 1px solid #e5e7eb;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  text-align: center;
   width: 100%;
-  color:rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-left{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-right{
+  width: 150px;
 }
 
 /* SECOND ROW */
 
 .macro-cards{
+  
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+   flex-direction: row;
+  justify-content: space-between;
   gap: 1rem;
-  margin: 0 auto;
-
+  margin: 25px auto 20px auto;
   width: 100%;
-
 }
+
+
 
 
 .protein-card{
+ 
+  
   background: #525252;
-  padding: 1.5rem;
+  padding: 1.2rem;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  text-align: center;
-  width: 30%;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  
+  flex: 1 1 30%;
+  min-width: 100px;
+  background: white;
+  color:black;
+
+
+  display: flex;
+  flex-direction: column;
 }
 
 .carbs-card{
-  background: #525252;
-  padding: 1.5rem;
+  padding: 1.2rem;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  text-align: center;
-  width: 30%;
+  background: white;
+  color:black;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  border: 1px solid #e5e7eb;
+  flex: 1 1 30%;
+  min-width: 100px;
 }
 
 .fats-card{
-  background: #525252;
-  padding: 1.5rem;
+  background: white;
+  color:black;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  border: 1px solid #e5e7eb;
+  padding: 1.2rem;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  text-align: center;
-  width: 30%;}
+  
+  
+  flex: 1 1 30%;
+  min-width: 100px;
+}
 
 /* THIRD ROW */
 
@@ -81,17 +120,73 @@ div{
 
 }
 
-.ai-photo-card img{
-  width: 50%;
+
+.macro-value {
+  font-size: 1.5rem;
+  font-weight: bolder;
 }
 
-.ai-photo-card{
-  width: 49%;
-}
-
-.weight-card{
-  width: 49%;
+.macro-label{
+  font-size: 1rem;
+  color: #666;
 }
 
 
 
+.macro-circle{
+  width: 90px;
+
+  position: relative;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: auto;
+  margin: auto;
+}
+.calorie-value {
+  font-size: 3rem;
+  font-weight: bolder;
+}
+
+
+.circular-wrapper{
+  position: relative;
+  width: 100%;
+  
+}
+
+
+
+.circular-text{
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circular-small-value{
+  font-size: 1rem;
+  font-weight: bolder;
+}
+
+.circular-small-text{
+  font-size: 0.8rem;
+  font-weight: 100;
+}
+
+
+.recently-logged{
+  color: black;
+  font-size: 2rem;
+}
+
+.meal-button {
+  background-color: rgb(0, 110, 255);
+  color: rgb(255, 255, 255);
+  border: 1px solid #e5e7eb;
+  font-weight: bolder;
+}

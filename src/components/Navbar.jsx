@@ -3,8 +3,12 @@ import './Navbar.css';
 function Navbar({ username }) {
     return (
       <nav className="nav">
-        <div className="nav-left">FitnessIO</div>
-        <div className="nav-center">Hello {username}</div>
+        
+       
+            <img src="src/assets/fitnessio.png" alt="FitnessIO logo"/>
+        <div className="nav-center">
+
+        </div>
         <div className="nav-right">
           <button className="calendar-button">📅</button>
         </div>
