@@ -3,17 +3,20 @@ import MainPage from './components/MainPage';
 import { useState } from "react";
 
 
-function App() {
+function App(){
   const [isLoggedIn, toggleIsLoggedIn] = useState(false);
   
   
   
-  
+  /*
   if (!isLoggedIn){
     return <LoginPage stateChangingFunction={toggleIsLoggedIn}/>;
-  }
-  else
+    }
+    else
     return <MainPage/>
+  */
+  return <MainPage/>
+
   
   
 

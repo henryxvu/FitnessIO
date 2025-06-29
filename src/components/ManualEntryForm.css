@@ -1,0 +1,61 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* translucent black */
+
+
+    display: flex;
+    align-items: top;
+    justify-content: space-around;
+}
+
+.content{
+    position: relative;
+
+    background: #525252;
+  padding: 1.2rem;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+
+  background: white;
+  color:black;
+
+  height: 385px;
+  margin-top: 5rem;
+}
+
+
+
+input {
+    width: 70%;
+    height: 50px;           /* 👈 Makes the box taller */
+    font-size: 1rem;       /* 👈 Makes the text smaller */
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: white;
+    color: black;
+}
+
+label {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px auto 5px auto;
+}
+
+.submit-button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(0, 110, 255);
+    color: rgb(255, 255, 255);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+

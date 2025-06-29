@@ -1,0 +1,58 @@
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* translucent black */
+
+
+    display: flex;
+    align-items: top;
+    justify-content: space-around;
+}
+
+.modal-content {
+    position: relative;
+
+    background: #525252;
+  padding: 1.2rem;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+
+  background: white;
+  color:black;
+
+  height: 200px;
+  margin-top: 5rem;
+}
+
+.button-close {
+  position: absolute;
+  bottom: 145px;
+  left: 335px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+}
+
+.ai-button{
+    background-color: rgb(223, 189, 0);
+}
+
+.manual-button{
+    background-color: white;
+    color: black;
+    border: 1px solid #e5e7eb;
+}
+
+.buttons-container{
+    display: flex;
+    justify-content: space-evenly;
+}
