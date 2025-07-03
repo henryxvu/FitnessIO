@@ -16,22 +16,20 @@
     position: relative;
 
     background: #525252;
-  padding: 1.2rem;
+  padding: 5px 1.2rem 0 1.2rem;
   border-radius: 12px;
   border: 1px solid #e5e7eb;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   text-align: center;
   width: 90%;
   max-width: 400px;
-
   background: white;
   color:black;
-
-  height: 385px;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
   margin-top: 5rem;
 }
-
-
 
 input {
     width: 70%;
@@ -59,3 +57,18 @@ label {
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
+.cancel-button-container{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 0rem;
+}
+
+.cancel-button{
+    background: none;
+    border: none;
+    color: #6b7280;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    scale: 1.5;
+}

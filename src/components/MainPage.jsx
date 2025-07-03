@@ -11,7 +11,7 @@ function MainPage(){
     const [username, setUsername] = useState(() => {
         return localStorage.getItem("username") || "";
       });
-      
+    
     /* Macros */
     const [calorieCount, setCalorieCount] = useState(0);
     const [proteinCount, setProteinCount] = useState(0);
