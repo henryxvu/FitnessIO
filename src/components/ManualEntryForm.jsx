@@ -2,7 +2,7 @@ import { useState } from 'react';
 import "./ManualEntryForm.css"
 
 
-function ManualEntryForm({onClose, refreshData, date}){
+function ManualEntryForm({onBack, onClose, refreshData, date, username}){
     const [mealName, setMealName] = useState('');
     const [calorieCount, setCalorieCount] = useState(0);
     const [proteinCount, setProteinCount] = useState(0);
@@ -13,17 +13,18 @@ function ManualEntryForm({onClose, refreshData, date}){
     async function submitEntry(){
         try {
             console.log("button clicked");
-            const response = await fetch('http://localhost:3001/api/meal', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}meal`, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({meal: mealName, calorie: calorieCount, protein: proteinCount, carb: carbCount, fat: fatCount, date_: date})
-            });
-
+                body: JSON.stringify({username: username, date: date, meal: mealName, calorie: calorieCount, protein: proteinCount, carb: carbCount, fat: fatCount, imageURL: null})
+            })
+            
             const result = await response.json();
             if (!response.ok)
                 throw new Error();
-
+            
             console.log("Meal Logged")
+            refreshData();
         }
         catch (err){
             console.error("Error while logging meal: ", err.message);
@@ -35,10 +36,15 @@ function ManualEntryForm({onClose, refreshData, date}){
             
             <div className="content">
                 <div className="cancel-button-container">
-                    <button className="cancel-button" onClick={onClose}>←</button>
+                    <button className="back-button" onClick={onBack}>←</button>
+                    <button className="button-close" onClick={onClose}>
+                        <span class="X"></span>
+                        <span class="Y"></span>
+                        <div class="close">Close</div>
+                    </button>
                 </div>
                 
-                <h2 style={{marginTop: "0"}}>Add Meal</h2>
+                <h2 style={{marginTop: ".6rem"}}>Add Meal</h2>
 
 
 
@@ -70,7 +76,7 @@ function ManualEntryForm({onClose, refreshData, date}){
                         <input type="number" onChange={(e) => setFatCount(e.target.value)}></input>
                     </label>
 
-                    <button className="submit-button" onClick={(e) => { e.preventDefault(); submitEntry()}}>Submit</button>
+                    <button className="submit-button" onClick={(e) => { e.preventDefault(); submitEntry(); onClose()}}>Submit</button>
                 </form>
             </div>
 

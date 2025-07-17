@@ -1,36 +1,43 @@
 import express from 'express';
 import cors from 'cors';
+import mongoose from 'mongoose';
+import mealRoutes from './routes/mealRoutes.js';
+import uploadRoutes from './routes/uploadRoutes.js'
+import authRoutes from './routes/authRoutes.js';
+import scanRoutes from './routes/scanRoutes.js'
+import searchRoutes from './routes/searchRoutes.js';
+import dotenv from 'dotenv';
 
-// const express = require("express");
+dotenv.config();
+
+
+
+
 const app = express();
 const PORT = 3001;
 
-const mongodbURL = 'mongodb://127.0.0.1:27017';
 
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }).then(() => {
+    console.log('✅ Connected to MongoDB');
+  }).catch(err => {
+    console.error('❌ MongoDB connection error:', err);
+  });
 
-
-
-app.use(cors({
-    origin: "http://localhost:5173",
-}));
-
+app.use(cors());
 app.use(express.json());
 
-app.post('/api/meal', (req, res) => {
-    const data = req.body;
+app.use('/api', authRoutes);
+app.use('/api', mealRoutes);
+app.use('/api', uploadRoutes);
+app.use('/api', scanRoutes);
+app.use('/api', searchRoutes);
 
-    const date = data.date_;
-    const mealName = data.meal;
-    const calorieCount = data.calorie;
-    const proteinCount = data.protein;
-    const carbCount = data.carb;
-    const fatCount = data.fat;
 
-    
-   
-    
-   
-})
+
+
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);

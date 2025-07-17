@@ -4,7 +4,11 @@ function MealMethodModal({ onClose, onManual, onScan }) {
     return (
       <div className="modal-backdrop">
         <div className="modal-content">
-          <button className="button-close" onClick={onClose}>x</button>
+          <button className="button-close" onClick={onClose}>
+            <span class="X"></span>
+            <span class="Y"></span>
+            <div class="close">Close</div>
+          </button>
           <h2>How would you like to log your meal?</h2>
           <div className="buttons-container">
             <button className="ai-button" onClick={onScan}>📸 Use AI Photo</button>

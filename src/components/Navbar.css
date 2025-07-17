@@ -1,30 +1,119 @@
 .nav{
     width: 100%;
-    max-width: 100vw;
-    height: 200px;
+    max-width: 1000px;
     overflow-y: hidden;
     height: 60px;
-    background-color: #006eff;
+    background-color: #ffffff;
     color: white;
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
-    padding: 5px 25px 5px 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: fixed;
     top: 0;
 }
 
-.nav img {
-    width: 65px;
-    transform: translateY(-2px);
+.logo {
+    width: 4rem;
 }
 
 
-  .calender-button {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    flex-shrink: 0;
+.calendar-button{
+  background-color: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: center;
+  padding: 0.7rem;
+
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 2px solid rgba(179, 179, 179, 0.328);
+  margin: 0 4px;
+  font-size: smaller;
+}
+
+.calendar-pic {
+  width: 100%;
+}
+
+.calendar-pic-active {
+  filter: brightness(0) invert(1);
+
+}
+
+.nav-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.btn-date{
+  background-color: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: center;
+
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 2px solid rgba(179, 179, 179, 0.328);
+  margin: 0 4px;
+  font-size: smaller;
+}
+
+.calendar-active {
+  background-color: #5E5DF0;
+  color: white;
+  border: 2px solid #5E5DF0;
+  box-shadow: 0 0 12px #5E5DF0;
+}
+
+.calendar-button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+@media (max-width: 600px) {
+  .btn-date,
+  .calendar-button {
+    font-size: 0.6rem;
+    margin: 0 1px;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: .5rem;
   }
+  .logo{
+    width: 3rem;
+  }
+  
+}
+
+
+
+.btn-date:hover{
+  border: 2px solid rgb(0, 0, 0);
+}
+.btn-date:focus {
+  outline: none;
+  box-shadow: none;
+}
+.btn-date.curr{
+  background-color: black;
+  color: white;
+  border: 2px solid rgb(0, 0, 0);
+
+
+}
+
+.nav-right {
+  position: relative;
+  overflow: visible; /* allow calendar to overflow */
+  z-index: 2; /* optional, helps float on top */
+}

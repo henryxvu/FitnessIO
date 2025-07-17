@@ -1,0 +1,195 @@
+
+
+.title{
+   
+    margin-bottom: 2vh;
+    height: auto;
+}
+
+.title h1 {
+    margin: 0;
+    font-size: 5.5vh;
+
+}
+
+
+.onboard-bg{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+.onboard-content{
+    margin-top: 10vh;
+    text-align: center;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+   
+    
+   
+    
+}
+
+.sandwich-img{
+   border-radius: 50%;
+   width: 60% ;
+ 
+   object-fit: cover;
+   margin-bottom: 5vw;
+}
+
+
+.onboard-btn-container {
+    width: 100%;
+    margin-top: 5vw;
+
+}
+
+
+.btn-start{
+    width: 90%;
+    background: #5E5DF0;
+  border-radius: 999px;
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+ 
+
+    padding: 10px 20px;
+   
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-bottom: .5rem;
+  
+}
+
+.btn-login{
+    padding: 10px 20px;
+    width: 90%;
+    border-radius: 999px;
+    border: 1px solid gray;
+
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.btn-login:hover{
+    outline: 1px solid #5E5DF0;
+    color: #5E5DF0;
+}
+
+
+.page1-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1{
+    color: black;
+    font-size: 4.5vh;
+    text-align: center;
+
+}
+
+label{
+    font-size: 2vh;
+    font-weight: 700;
+    color: black;
+    margin-top: 1rem;
+}
+
+.health-goals-container h1{
+    margin-bottom: 2rem;
+}
+.health-goals-container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+.btn-health-goals{
+    padding: 10px 20px;
+    width: 90%;
+    border-radius: 999px;
+    border: 1px solid gray;
+
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-bottom: 0.75rem;
+}
+
+.btn-health-goals:hover{
+    outline: 1px solid #5E5DF0;
+    color: #5E5DF0;
+}
+
+.body-measurements-container h1{
+    text-align: left;
+}
+
+.body-measurements-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.gender-bubbles {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .gender-bubble {
+    padding: 10px 20px;
+    width: 90%;
+    border-radius: 20px;
+    border: 2px solid gray;
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+  .gender-bubble:hover{
+    color:#5E5DF0;
+  }
+  .gender-bubble.selected {
+    background-color: #5E5DF0; /* or any color you want */
+    color: white;
+    border-color: #5E5DF0;
+  }
+  .error-message {
+    color: red;
+    margin-top: 1rem;
+  }
+
+  .create-account-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .create-account-container p{
+    color: black;
+    text-align: center;
+  }
+
+  .create-account-container h1{
+    color: black;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  .create-account-container button{
+    width: 25%;
+  }
