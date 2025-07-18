@@ -21,7 +21,7 @@
 }
 .food-details-container {
     display: flex;
-    
+    outline: 2px solid red;
     line-height: normal;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -29,9 +29,12 @@
   
   .macro-block {
     display: flex;
+    outline: 2px solid red;
+    flex: 1;
     flex-direction: column;
     margin-left: 1rem;
     margin-right: 1rem;
+    align-items: center;
   }
   
   .macro-label {

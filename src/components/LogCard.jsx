@@ -8,7 +8,7 @@ function LogCard ({entries}){
         entries.forEach(entry => {
             cards.push(
                 <div className="log-card">
-                    <div className="log-left-container"><img className="log-img" src={entry.imageURL}></img></div>
+                    <div className="log-left-container"><img style={{ maxWidth: "100%", height: "100%", objectFit: "contain", borderRadius: "12px" }} src={entry.imageURL}></img></div>
                     <div className="log-right-container">
                         <div>
                             <p className="meal-name">{entry.meal}</p>

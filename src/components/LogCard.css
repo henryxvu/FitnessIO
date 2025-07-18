@@ -32,14 +32,12 @@
   width: 200px;
   height: 100%;
   overflow: hidden;
-  border-radius: 12px;
-  margin-right: 1rem;
+  display: flex;
+  justify-content: center;
+  margin-right: 0rem;
 }
 
-.log-img{
-  width: 100%;
-  
-}
+
 
 .log-right-container{
  
