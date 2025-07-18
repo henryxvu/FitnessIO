@@ -9,7 +9,7 @@ function PhotoEntryPage({refreshData, onBack, onClose, date, username}){
     const [macroTitle, setMacroTitle] = useState(null);
     const [image_URL, setURL] = useState(null);
 
-
+    const [scanningMeal, setScanningMeal] = useState(null);
     const [probability, setProbability] = useState(null);
 
     const handleFileChange = (event) => {
@@ -29,6 +29,7 @@ function PhotoEntryPage({refreshData, onBack, onClose, date, username}){
 
         try{
             
+            setScanningMeal(true);
             const uploadResponse = await fetch(`${import.meta.env.VITE_API_URL}upload`,{
                 method: 'POST',
                 body: formData
@@ -40,7 +41,6 @@ function PhotoEntryPage({refreshData, onBack, onClose, date, username}){
             const data = await uploadResponse.json();
             const imageURL = (data.data.url);
 
-            setMacros(<p>Scanning meal...</p>)
 
             setURL(imageURL);
             const scanResponse = await fetch(`${import.meta.env.VITE_API_URL}scan`, {
@@ -66,6 +66,7 @@ function PhotoEntryPage({refreshData, onBack, onClose, date, username}){
 
             const macroData = await macroResponse.json();
             macroData.name = mealName;
+            setScanningMeal(false);
             setMacroData(macroData);
             setMacroTitle(true);
             setMacros(<>
@@ -139,7 +140,7 @@ function PhotoEntryPage({refreshData, onBack, onClose, date, username}){
 
 </p>
 
-                {macroTitle && (
+                {macroTitle && !scanningMeal && (
                      <div className="food-title-container"style={{ textAlign: 'center' }}>
                      <p className="food-name">{macroData.name}</p>
                      <p style={{fontSize: '1rem', marginTop: '.5rem'}}>Probability: {probability}%</p>
@@ -149,8 +150,11 @@ function PhotoEntryPage({refreshData, onBack, onClose, date, username}){
                     <div className="image-preview">
                         <img src={preview} alt="Preview" style={{ maxWidth: "100%", height: "200px", objectFit: "cover",  borderRadius: "12px" }} />
                     </div>
-                )}      
-                {macros && (
+                )}     
+                {scanningMeal && (
+                    <p>Scanning Food...</p>
+                )} 
+                {macros && !scanningMeal &&(
                     <div className="macros">
                         {macros}
                     </div>
@@ -166,8 +170,8 @@ function PhotoEntryPage({refreshData, onBack, onClose, date, username}){
                         />
                 <label htmlFor="file-upload" className="custom-file-button"><img style={{margin: '5px', maxWidth: '50%'}}src={camera}/></label>
                 <button 
-                    disabled={!preview}
-                    className={preview ? "btn-submit" : "btn-submit-dead"}
+                    disabled={!macros}
+                    className={macros ? "btn-submit" : "btn-submit-dead"}
                     onClick={submit}
                     >Submit</button>
                 </div>
