@@ -1,4 +1,5 @@
 import "./PhotoEntryPage.css"
+import camera from "../assets/camera.png"
 import { useState } from "react";
 
 function PhotoEntryPage({refreshData, onBack, onClose, date, username}){
@@ -163,7 +164,7 @@ function PhotoEntryPage({refreshData, onBack, onClose, date, username}){
                         capture="environment"
                         onChange={handleFileChange}
                         />
-                <label htmlFor="file-upload" className="custom-file-button"><img style={{margin: '5px', maxWidth: '50%'}}src="src/assets/camera.png"/></label>
+                <label htmlFor="file-upload" className="custom-file-button"><img style={{margin: '5px', maxWidth: '50%'}}src={camera}/></label>
                 <button 
                     disabled={!preview}
                     className={preview ? "btn-submit" : "btn-submit-dead"}

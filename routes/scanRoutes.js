@@ -6,7 +6,11 @@ dotenv.config();
 const router = express.Router();
 
 const client = new vision.ImageAnnotatorClient({
-    keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS,
+    credentials: {
+        client_email: process.env.VISION_CLIENT_EMAIL,
+        private_key: process.env.VISION_PRIVATE_KEY.replace(/\\n/g, '\n'),
+      },
+      projectId: process.env.VISION_PROJECT_ID,
 });
 
 
