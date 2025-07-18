@@ -1,5 +1,6 @@
 import "./OnboardPage.css";
 import { useState } from "react";
+import sandwich from '../assets/sandwich.jpg'
 
 function OnboardPage({viewChanger, setUserId}){
     
@@ -38,7 +39,7 @@ function OnboardPage({viewChanger, setUserId}){
         return(
             <div className="create-account-container">
                 <h1>Create an account to start tracking!</h1>
-                <p>Your daily calorie intake: <strong>{totalCalories}</strong></p>
+                <p style={{fontSize: '1.3rem'}}>Your daily calorie intake: <strong>{totalCalories}</strong></p>
                 <form>
                     <div>
                     <label>Username</label>
@@ -143,7 +144,7 @@ function OnboardPage({viewChanger, setUserId}){
     function mainScreen(){
         return(
             <div className="onboard-content">
-            <img className="sandwich-img" src="src/assets/sandwich.jpg"></img>
+            <img className="sandwich-img" src={sandwich}></img>
             <div className="title"><h1>Calorie tracking made easy</h1></div>
             <p style={{fontSize: "2vh", fontWeight: "500", color: "rgb(125,125,125)"}}>Scan your food. Get your custom plan.</p>
             

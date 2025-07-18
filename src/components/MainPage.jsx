@@ -11,7 +11,6 @@ import CalendarDropdown from "./CalendarDropdown.jsx";
 import PhotoEntryPage from "./PhotoEntryPage.jsx";
 
 
-
 function MainPage({userId}){
     
     const [username, setUsername] = useState(userId.username);
@@ -179,7 +178,7 @@ function MainPage({userId}){
                 <button className="meal-button" onClick={() => setShowModal(true)}> + Add Meal</button>
                     
                <div className="recently-logged">
-                    <p>Recently Logged</p>
+                    <p style={{marginBottom: '1rem'}}>Recently Logged</p>
                     <div className="log-cards">
                         <LogCard entries={mealEntries}/>
                     </div>

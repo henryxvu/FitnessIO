@@ -1,6 +1,8 @@
 import './Navbar.css';
 import React, { useState, useEffect } from 'react';
 import dayjs from 'dayjs';
+import logo from "../assets/fitnessio.png" 
+import calendarIcon from "../assets/Daco_378914.png"
 
 function Navbar({ date, dateSetter, showCalendar, calendarVisible}) {
 
@@ -37,7 +39,7 @@ function Navbar({ date, dateSetter, showCalendar, calendarVisible}) {
   return (
       <nav className="nav">
   
-        <img className="logo" src="src/assets/fitnessio.png" alt="FitnessIO logo"/>
+        <img className="logo" src={logo} alt="FitnessIO logo"/>
         <div className="nav-center">
         {renderButtons()}
 
@@ -45,7 +47,7 @@ function Navbar({ date, dateSetter, showCalendar, calendarVisible}) {
         </div>
         <div className="nav-right">
         <button className = {`calendar-button ${calendarVisible ? "calendar-active" : ""}`} onClick={()=>{showCalendar(!calendarVisible)}}>
-          <img className= {`calendar-pic ${calendarVisible ? "calendar-pic-active" : ""}`} src="src/assets/Daco_378914.png"></img>
+          <img className= {`calendar-pic ${calendarVisible ? "calendar-pic-active" : ""}`} src={calendarIcon}></img>
         </button>
         
         </div>
