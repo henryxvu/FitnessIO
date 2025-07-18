@@ -1,11 +1,16 @@
 import "./PhotoEntryPage.css"
 import { useState } from "react";
 
-function PhotoEntryPage({onBack, onClose, date, username}){
+function PhotoEntryPage({refreshData, onBack, onClose, date, username}){
     const [preview, setPreview] = useState(null);
     const [macros, setMacros] = useState(null);
     const [macroData, setMacroData] = useState(null);
+    const [macroTitle, setMacroTitle] = useState(null);
     const [image_URL, setURL] = useState(null);
+
+
+    const [probability, setProbability] = useState(null);
+
     const handleFileChange = (event) => {
         const selectedFile = event.target.files[0];
             if (selectedFile) {
@@ -50,7 +55,8 @@ function PhotoEntryPage({onBack, onClose, date, username}){
             if (mealName == 'Food' || mealName == 'Ingredient' || mealName == 'Fruit'){
                 mealName = foodData[1].description
             }
-            
+            setProbability(Math.round(foodData[1].score * 100));
+
             const macroResponse = await fetch(`${import.meta.env.VITE_API_URL}search`,{
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
@@ -60,10 +66,28 @@ function PhotoEntryPage({onBack, onClose, date, username}){
             const macroData = await macroResponse.json();
             macroData.name = mealName;
             setMacroData(macroData);
+            setMacroTitle(true);
             setMacros(<>
-                <p style = {{fontWeight: '3rem'}}>{macroData.name}</p>
-                <p>probability: {Math.round(foodData[1].score * 100)}%</p>
-                <p>Calories: {Math.round(macroData.calories)} P: {Math.round(macroData.protein)} C: {Math.round(macroData.carbs)} F: {Math.round(macroData.fat)}</p>
+            <div className="results-container">
+                <div className="food-details-container">
+                    <div className="macro-block">
+                        <span className="macro-label">Calories</span>
+                        <span className="macro-value">{Math.round(macroData.calories)}</span>
+                    </div>
+                    <div className="macro-block">
+                        <span className="macro-label">Protein</span>
+                        <span className="macro-value">{Math.round(macroData.protein)}g</span>
+                    </div>
+                    <div className="macro-block">
+                        <span className="macro-label">Carbs</span>
+                        <span className="macro-value">{Math.round(macroData.carbs)}g</span>
+                    </div>
+                    <div className="macro-block">
+                        <span className="macro-label">Fat</span>
+                        <span className="macro-value">{Math.round(macroData.fat)}g</span>
+                    </div>
+                </div>
+            </div>
                         </>);
                 
 
@@ -83,9 +107,13 @@ function PhotoEntryPage({onBack, onClose, date, username}){
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({username: username, date: date, meal: macroData.name, calorie: macroData.calories, protein: macroData.protein, carb: macroData.carbs, fat: macroData.fat, imageURL: image_URL})
             });
+
             const result = await response.json();
             if (!response.ok)
                 throw new Error();
+            refreshData();
+            onClose();
+
         } catch (error) {
             console.log("error while submitting to db");
         }   
@@ -106,9 +134,16 @@ function PhotoEntryPage({onBack, onClose, date, username}){
                 </div>
                 
                 
-                <p style={{fontWeight: "600", fontSize: "2rem"}}>Snap a photo of your meal</p>
+                <p style={{fontWeight: "600", fontSize: "2rem", marginBottom: "1rem"}}>Capture your meal
 
+</p>
 
+                {macroTitle && (
+                     <div className="food-title-container"style={{ textAlign: 'center' }}>
+                     <p className="food-name">{macroData.name}</p>
+                     <p style={{fontSize: '1rem', marginTop: '.5rem'}}>Probability: {probability}%</p>
+                 </div>
+                )}
                 {preview && (
                     <div className="image-preview">
                         <img src={preview} alt="Preview" style={{ maxWidth: "100%", height: "200px", objectFit: "cover",  borderRadius: "12px" }} />
@@ -128,7 +163,7 @@ function PhotoEntryPage({onBack, onClose, date, username}){
                         capture="environment"
                         onChange={handleFileChange}
                         />
-                <label htmlFor="file-upload" className="custom-file-button"><img style={{margin:'5px'}}src="src/assets/camera.png"/></label>
+                <label htmlFor="file-upload" className="custom-file-button"><img style={{margin: '5px', maxWidth: '50%'}}src="src/assets/camera.png"/></label>
                 <button 
                     disabled={!preview}
                     className={preview ? "btn-submit" : "btn-submit-dead"}

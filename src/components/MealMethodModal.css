@@ -107,7 +107,11 @@
 
 .ai-button{
     background-color: rgb(223, 189, 0);
+    box-shadow: rgb(223, 189, 0) 0 10px 20px -10px;
+
+    color: white;
 }
+
 
 .manual-button{
     background-color: white;

@@ -9,10 +9,10 @@ body {
 .header {
   color: black;
   margin-top: 2rem;
-  
+  margin-bottom: 1rem;
 
-  font-size: 2rem;
-  font-weight: bolder;
+  font-size: 1.5rem;
+  font-weight: 500;
   display: flex;
   justify-content: space-between;
 }
@@ -30,6 +30,7 @@ body {
 
 .calorie-card{
   padding: 1.5rem;
+  margin-top:0 ;
   height: 200px;  
   background: white;
   color:black;
@@ -122,11 +123,18 @@ body {
 .macro-value {
   font-size: 1.5rem;
   font-weight: bolder;
+  margin-bottom: 0.25rem;
 }
 
 .macro-label{
   font-size: 1rem;
-  color: #666;
+  color: #727272;
+  margin-bottom: 0.25rem;
+}
+
+.macro-label p{
+  margin: 0;
+  font-weight: 500;
 }
 
 
@@ -144,8 +152,8 @@ body {
   margin: auto;
 }
 .calorie-value {
-  font-size: 3rem;
-  font-weight: bolder;
+  font-size: 3.5rem;
+  font-weight: 600;
 }
 
 

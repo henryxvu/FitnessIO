@@ -10,8 +10,39 @@
     cursor: pointer;
     transition: 0.2s ease;
 
+
 }
 
+.food-name{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    color: #5E5DF0;
+}
+.food-details-container {
+    display: flex;
+    
+    line-height: normal;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .macro-block {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
+  .macro-label {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  .macro-value {
+    font-size: 1.05rem;
+  }
+  
 .custom-file-button:hover{
    
     background-color:#9c9c9c;

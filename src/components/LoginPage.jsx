@@ -6,9 +6,6 @@ function LoginPage({viewChanger, setCurrentUserId}){
     const [password, setPassword] = useState('');
     const [retryMessage, displayTryAgain] = useState(null);
 
-    const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
-
     const login = async () => {
         const response = await fetch(`${import.meta.env.VITE_API_URL}login`, {
             method: 'POST',

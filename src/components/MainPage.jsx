@@ -107,14 +107,14 @@ function MainPage({userId}){
 
             
                 <div className="header">
-                    <p>Hello, {username}</p>
-                    <p>{date.format("MMMM DD, YYYY")}</p>
+                    <p style={{margin: '0'}}>Hello, {username}</p>
+                    <p style={{margin: '0'}}>{date.format("MMMM DD, YYYY")}</p>
                 </div>
     
                 <div className="calorie-card">
                     <div className="card-left">
                         <div className="calorie-value">{calorieCount}</div>
-                        <div className="macro-label">Calories consumed</div>
+                        <div className="macro-label"><p>Calories consumed</p></div>
                     </div>
 
                     <div className="card-right">
@@ -122,7 +122,7 @@ function MainPage({userId}){
                             <CircularTracker value={(calorieCount / calorieTotal) * 100} color="gold"/>
                             <div className="circular-text">
                                 <div className="macro-value">{calorieTotal - calorieCount}</div>
-                                <div className="macro-label">remaining</div>
+                                <div className="macro-label"><p>remaining</p></div>
                             </div>
                         </div>
                     </div>
@@ -133,7 +133,7 @@ function MainPage({userId}){
 
                     <div className="protein-card">
                         <div className="macro-value">{proteinCount}g</div>
-                        <div className="macro-label" style={{padding: '0 0 5px 0'}}>Protein consumed</div>
+                        <div className="macro-label" style={{padding: '0 0 5px 0'}}><p>Protein consumed</p></div>
                         <div className="macro-circle">
                             <div className="circular-wrapper">
                                 <CircularTracker value={(proteinCount / proteinTotal) * 100} color="orange"/>
@@ -147,7 +147,7 @@ function MainPage({userId}){
 
                     <div className="carbs-card">
                         <div className="macro-value">{carbCount}g </div>
-                        <div className="macro-label" style={{padding: '0 0 5px 0'}}>Carbs consumed</div>
+                        <div className="macro-label" style={{padding: '0 0 5px 0'}}><p>Carbs consumed</p></div>
                        
                             <div className="macro-circle">
                                 <div className="circular-wrapper">
@@ -162,7 +162,7 @@ function MainPage({userId}){
 
                     <div className="fats-card">
                         <div className="macro-value">{fatCount}g</div>
-                        <div className="macro-label" style={{padding: '0 0 5px 0'}}>Fats consumed</div>
+                        <div className="macro-label" style={{padding: '0 0 5px 0'}}><p>Fats consumed</p></div>
                         <div className="macro-circle">
                             <div className="circular-wrapper">
                                 <CircularTracker value={(fatCount/fatTotal)*100} color="#e594ff"/>
@@ -223,6 +223,7 @@ function MainPage({userId}){
                 onBack={() => {setShowAiEntry(false); setShowModal(true);}}
                 date = {date.format("MM/DD/YYYY")}
                 username = {username}
+                refreshData = {refreshData}
                 />
             )}
            
