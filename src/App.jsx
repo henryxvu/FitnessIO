@@ -9,6 +9,8 @@ function App(){
   
   const [view, setView] = useState(null);
   const [currentUserId, setCurrentUserId] = useState(null);
+  const MAX_RETRIES = 25;
+  
   useEffect(() => {
     async function startup() {
       try {
@@ -25,10 +27,13 @@ function App(){
       } catch (error) {
         console.error("Connection failed", error);
     
-        setTimeout(() => {
-          startup();
-        }, 1000);
-
+        if (retryCount + 1 < MAX_RETRIES) {
+          setAttempts(retryCount + 1);
+          setTimeout(() => startup(retryCount + 1), 2500); 
+        } else {
+          console.error("Max retries reached. Showing error screen.");
+          setView("error");
+        }
       }
     }
 
