@@ -24,8 +24,8 @@
 }
 
 .input-text{
-    font-size: 2vh;
-    margin-bottom: 2vh;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
 }
 
 .login-btn {    
@@ -35,7 +35,7 @@
     box-sizing: border-box;
     color: #FFFFFF;
     cursor: pointer;
-    font-size: 2vh;
+    font-size: 1rem;
     font-weight: 700;
     line-height: 24px;
     opacity: 1;
@@ -43,9 +43,10 @@
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    height: 5vh;
+    height: 40px;
     word-break: break-word;
     border: 0;
     margin-right: 2vh;
+    
 }
 

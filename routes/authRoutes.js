@@ -4,6 +4,11 @@ import User from '../schemas/User.js';
 
 const router = express.Router();
 
+router.post("/startup", async (req, res) => {
+    res.json({message: "Success"});
+})
+
+
 router.post("/signup", async (req, res) => {
     const data = req.body;
 
